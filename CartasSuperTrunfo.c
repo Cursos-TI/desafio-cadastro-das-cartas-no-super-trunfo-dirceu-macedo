@@ -75,8 +75,8 @@ int main() {
     pibPerCapitaA = (float)(pibA * 1000000000.0) / populacaoA;
     pibPerCapitaB = (float)(pibB * 1000000000.0) / populacaoB;
 
-    superPoderA = (float)(populacaoA + areaA + pibA + pibPerCapitaA + pontosTuristicosA) + (1 / densidadePopulacionalA);
-    superPoderB = (float)(populacaoB + areaB + pibB + pibPerCapitaB + pontosTuristicosB) + (1 / densidadePopulacionalB);
+    superPoderA = (float)(populacaoA + areaA + pibA + pibPerCapitaA + pontosTuristicosA) + (1.0f / densidadePopulacionalA);
+    superPoderB = (float)(populacaoB + areaB + pibB + pibPerCapitaB + pontosTuristicosB) + (1.0f / densidadePopulacionalB);
 
     // Exibindo os dados cadastrados
     printf("\n=== Cartas Cadastradas ===\n");
@@ -105,13 +105,13 @@ int main() {
     printf("Super Poder: %.2f\n", superPoderB);
 
     printf("\nComparação de Cartas:\n");
-    printf("População: Carta %d venceu %d\n", populacaoA >= populacaoB ? 1 : 2, populacaoA >= populacaoB ? 1 : 0);
-    printf("Área: Carta %d venceu %d\n", areaA >= areaB ? 1 : 2, areaA >= areaB ? 1 : 0);
-    printf("PIB: Carta %d venceu %d\n", pibA >= pibB ? 1 : 2, pibA >= pibB ? 1 : 0);
-    printf("Pontos Turísticos: Carta %d venceu %d\n", pontosTuristicosA >= pontosTuristicosB ? 1 : 2, pontosTuristicosA >= pontosTuristicosB ? 1 : 0);
-    printf("Densidade Populacional: Carta %d venceu %d\n", densidadePopulacionalA <= densidadePopulacionalB ? 1 : 2, densidadePopulacionalA <= densidadePopulacionalB ? 1 : 0);
-    printf("PIB per Capita: Carta %d venceu %d\n", pibPerCapitaA >= pibPerCapitaB ? 1 : 2, pibPerCapitaA >= pibPerCapitaB ? 1 : 0);
-    printf("Super Poder: Carta %d venceu %d\n", superPoderA >= superPoderB ? 1 : 2, superPoderA >= superPoderB ? 1 : 0);
+    printf("População: %d\n", populacaoA > populacaoB ? 1 : 0);
+    printf("Área: %d\n", areaA > areaB ? 1 : 0);
+    printf("PIB:  %d\n", pibA > pibB ? 1 : 0);
+    printf("Pontos Turísticos: %d\n", pontosTuristicosA > pontosTuristicosB ? 1 : 0);
+    printf("Densidade Populacional: %d\n", densidadePopulacionalA < densidadePopulacionalB ? 1 : 0);
+    printf("PIB per Capita: %d\n", pibPerCapitaA > pibPerCapitaB ? 1 : 0);
+    printf("Super Poder: %d\n", superPoderA > superPoderB ? 1 : 0);
 
     return 0;
 
