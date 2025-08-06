@@ -1,25 +1,27 @@
 #include <stdio.h>
 
 int main() {
-    char estadoA;                // Letra de 'A' a 'H'
-    char codigoA[4];             // Ex: "A01", "B03"
-    char nomeCidadeA[100];       // Nome da cidade
-    int populacaoA;              // Número de habitantes
-    float areaA;                 // Área em km²
-    float pibA;                  // PIB da cidade
-    int pontosTuristicosA;       // Número de pontos turísticos
-    float densidadePopulacionalA;// Densidade Populacional
-    float pibPerCapitaA;         // PIB per Capita
+    char estadoA;                 // Letra de 'A' a 'H'
+    char codigoA[4];              // Ex: "A01", "B03"
+    char nomeCidadeA[100];        // Nome da cidade
+    unsigned long int populacaoA; // Número de habitantes
+    float areaA;                  // Área em km²
+    float pibA;                   // PIB da cidade
+    int pontosTuristicosA;        // Número de pontos turísticos
+    float densidadePopulacionalA; // Densidade Populacional
+    float pibPerCapitaA;          // PIB per Capita
+    float superPoderA;            // Super Poder
 
-    char estadoB;                // Letra de 'A' a 'H'
-    char codigoB[4];             // Ex: "A01", "B03"
-    char nomeCidadeB[100];       // Nome da cidade
-    int populacaoB;              // Número de habitantes
-    float areaB;                 // Área em km²
-    float pibB;                  // PIB da cidade
-    int pontosTuristicosB;       // Número de pontos turísticos
-    float densidadePopulacionalB;// Densidade Populacional
-    float pibPerCapitaB;         // PIB per Capita
+    char estadoB;                 // Letra de 'A' a 'H'
+    char codigoB[4];              // Ex: "A01", "B03"
+    char nomeCidadeB[100];        // Nome da cidade
+    unsigned long int populacaoB; // Número de habitantes
+    float areaB;                  // Área em km²
+    float pibB;                   // PIB da cidade
+    int pontosTuristicosB;        // Número de pontos turísticos
+    float densidadePopulacionalB; // Densidade Populacional
+    float pibPerCapitaB;          // PIB per Capita
+    float superPoderB;            // Super Poder
 
 
     printf("=== Cadastro da Carta 1 ===\n");
@@ -73,6 +75,9 @@ int main() {
     pibPerCapitaA = (float)(pibA * 1000000000.0) / populacaoA;
     pibPerCapitaB = (float)(pibB * 1000000000.0) / populacaoB;
 
+    superPoderA = (float)(populacaoA + areaA + pibA + pibPerCapitaB + pontosTuristicosA) + (1 / densidadePopulacionalA);
+    superPoderB = (float)(populacaoB + areaB + pibB + pibPerCapitaB + pontosTuristicosB) + (1 / densidadePopulacionalB);
+
     // Exibindo os dados cadastrados
     printf("\n=== Cartas Cadastradas ===\n");
 
@@ -86,6 +91,7 @@ int main() {
     printf("Pontos Turísticos: %d\n", pontosTuristicosA);
     printf("Densidade Populacional: %.2f hab/km²\n", densidadePopulacionalA);
     printf("PIB per Capita: %.2f reais\n", pibPerCapitaA);
+    printf("Super Poder: %.2f\n", superPoderA);
 
     printf("\nCarta 2:\n");
     printf("Estado: %c\n", estadoB);
@@ -96,7 +102,16 @@ int main() {
     printf("PIB: %.2f bilhões de reais \n", pibB);
     printf("Pontos Turísticos: %d\n", pontosTuristicosB);
     printf("Densidade Populacional: %.2f hab/km²\n", densidadePopulacionalB);
-    printf("PIB per Capita: %.2f reais\n", pibPerCapitaB);
+    printf("Super Poder: %.2f\n", superPoderB);
+
+    printf("\nComparação de Cartas:\n");
+    printf("População: Carta 1 venceu %d\n", populacaoA > populacaoB);
+    printf("Área: Carta 1 venceu %d\n", areaA > areaB);
+    printf("PIB: Carta 1 venceu %d\n", pibA > pibB);
+    printf("Pontos Turísticos: Carta 1 venceu %d\n", pontosTuristicosA > pontosTuristicosB);
+    printf("Densidade Populacional: Carta 1 venceu %d\n", densidadePopulacionalA < densidadePopulacionalB);
+    printf("PIB per Capita: Carta 1 venceu %d\n", pibPerCapitaA > pibPerCapitaB);
+    printf("Super Poder: Carta 1 venceu %d\n", superPoderA > superPoderB);
 
     return 0;
 
